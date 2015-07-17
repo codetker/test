@@ -1,0 +1,7 @@
+﻿body { background:#f0efee;}
+.wrap{ margin:0 auto; font-family: "微软雅黑";font-size: 16px; line-height: 40px;}
+.left{ float: left; width: 270px;}
+.right{ float: left; width: 330px;}
+.center{ width: 600px; margin: 0 auto;}
+.dataInput{ display: none;}
+.dataOutput{ display: none;}
