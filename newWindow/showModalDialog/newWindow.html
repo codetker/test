@@ -1,0 +1,18 @@
+﻿<!-- in newWindow.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+    	str = window.dialogArguments;
+    	setTimeout(function() {
+    		document.body.innerHTML = str;
+    		setTimeout(function() {
+    			document.getElementById('J-form').submit();
+    		},2000);
+    	}, 2000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

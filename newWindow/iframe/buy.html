@@ -1,0 +1,48 @@
+﻿<!-- in buy.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iframe模拟</title>
+	<style type="text/css">
+	.hidden{
+		border  : 0;
+		width   : 0;
+		height  : 0;
+		display : block;
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body>
+    <iframe src="newWindow.html" class="hidden" id="newWin"></iframe>
+    <a href="newWindow.html" target="_blank" onclick="sendMsg()">点击打开新页面</a>
+    <script type="text/javascript">
+        function sendMsg() {
+        	document.getElementById('newWin').style.border = '1px solid #333';
+        	document.getElementById('newWin').style.width = '300px';
+        	document.getElementById('newWin').style.height = '300px';
+        	var contentW = [
+					'<style type="text/css">',
+						'.hidden{',
+							'border: 0;',
+							'width: 0;',
+							'height: 0;',
+							'display: block;',
+							'overflow: hidden;',
+						'}',
+					'</style>',
+					'<p>Redirecting!</p>',
+					'<form id="J-form" action="" method="post" class="hidden" target="_self">', //设置submittarget为_blank会被拦截
+						'<input type="text" name="name" value="admin"/>',
+						'<input type="text" name="pwd" value="admin"/>',
+						'<input type="submit" name="submitForm">',
+					'</form>',
+			].join('');
+			top[0].document.body.innerHTML += contentW;
+			setTimeout(function() {
+				top[0].document.getElementById('J-form').submit();
+			}, 3000);
+        }
+    </script>
+</body>
+</html>

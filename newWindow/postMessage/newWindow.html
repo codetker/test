@@ -1,0 +1,16 @@
+﻿ <!-- in newWindow.html -->
+ <!DOCTYPE html>
+ <html> 
+ <head> 
+     <title>postMessage child page</title> 
+     <script type="text/JavaScript"> 
+         window.addEventListener('message', function(event) {
+             //显示数据
+             document.body.innerHTML += event.data;
+         }, false);
+     </script> 
+ </head> 
+ <body> 
+     
+ </body> 
+ </html>

@@ -1,0 +1,38 @@
+﻿<!-- in buy.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>open with postMessage</title>
+    <script type="text/javascript">
+    function sendMsg(){
+        var newWin = window.open('newWindow.html'),
+        	str = [
+					'<style type="text/css">',
+						'.hidden{',
+							'border: 0;',
+							'width: 0;',
+							'height: 0;',
+							'display: block;',
+							'overflow: hidden;',
+						'}',
+					'</style>',
+					'<p>Redirecting!</p>',
+					'<form id="J-form" action="" method="post" class="hidden" target="_self">', //设置submittarget为_blank会被拦截
+						'<input type="text" name="name" value="admin"/>',
+						'<input type="text" name="pwd" value="admin"/>',
+						'<input type="submit" name="submitForm">',
+					'</form>',
+			].join('');
+		setTimeout(function() {
+			newWin.postMessage(str, '/');
+			setTimeout(function() {
+				newWin.document.getElementById('J-form').submit();
+			}, 3000);
+		}, 1000);
+    }
+    </script>
+</head>
+<body>
+    <input type="button" value="sentMsg" onclick="sendMsg()">
+</body>
+</html>
